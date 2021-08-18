@@ -5,5 +5,5 @@ function callBack(x){
         console.log(i);
     }
 }
-
-limitcall(x => callBack(x), 10);
+const loopFunc = limitcall(x => callBack(x), 10);
+console.log(loopFunc());
