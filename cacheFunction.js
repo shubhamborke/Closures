@@ -1,13 +1,16 @@
-let arr = [];
+
 const cache = function cacheFunction(cb){
-    function cacheStore(){
-        if(arr.includes(cb())){
+    let arr = [];
+    function cacheStore(value){
+        let Funcvalue = cb(value)
+        if(arr.includes(Funcvalue)){
             return arr;
         }else{
-            arr.push(cb());
+            arr.push(Funcvalue);
+            return arr;
         }
     }
-    return cacheStore();
+    return cacheStore;
 }
 
 export { cache }
