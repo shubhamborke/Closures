@@ -1,9 +1,14 @@
 const limitcall = function limitFunctionCallCount(cb, n){
-    let value = n;
-    function loop(){
-       return cb(value);
+    let count = 0;
+    function limit(value1, value2){
+        if(count < n){
+            count++;
+       return cb(value1,value2);
+        }else{
+            return "Limit Exeeded";
+        }
     }
-    return loop;
+    return limit;
 }
 
 export { limitcall }
