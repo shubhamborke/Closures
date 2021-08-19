@@ -1,14 +1,9 @@
 import { cache } from "../cacheFunction.js";
 
-let count = cache(x => x + 3);
-console.log(count(1))
-console.log(count(2))
-console.log(count(3))
-console.log(count(1))
-console.log(count(4))
-console.log(count(5))
-console.log(count(6))
-console.log(count(7))
-console.log(count(3))
-console.log(count(5))
-console.log(count(8))
+let count = cache(x => "Added " + x);
+
+let arr = [1,2,3,4,5,3,6,7,4];
+
+for(let i = 0 ; i < arr.length; i++){
+    count(arr[i]);
+}

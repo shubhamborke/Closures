@@ -1,13 +1,17 @@
 
-const cache = function cacheFunction(cb){
-    let arr = [];
-    function cacheStore(value){
-        let Funcvalue = cb(value)
-        if(arr.includes(Funcvalue)){
-            return arr;
-        }else{
-            arr.push(Funcvalue);
-            return arr;
+const cache = function cacheFunction(cb) {
+    let obj = {};
+    function cacheStore(argument) {
+        let count = 0;
+        for (let key in obj) {
+            if (key === `${argument}`) {
+                count++;
+            }
+        }
+        if (count === 1) {
+            console.log(obj);
+        } else {
+            obj[argument] = cb(argument);
         }
     }
     return cacheStore;
